@@ -3,8 +3,13 @@
 ### Procedimiento
 En el script *cinematica_inversa_px1.m* se encuentra una función de matlab que recibe una matriz de transformación homogénea (que representa una postura) y devuelve una matriz q de 2 filas y 4 columnas, las columnas representan las posiciones de los motores en grados y cada fila representa una solución diferente: codo arriba o codo abajo.
 
-La cinemática inversa se realizó a través de un análisis geométrico, primero "desacoplando" el último eslabón del robot y solucionando por separado 2 mecanismos de 2 grados de libertad.
+La cinemática inversa se realizó a través de un análisis geométrico:
 
+1. En primer lugar, se halló el vector de la posición de la muñeca, restándole a la matriz de la pose del gripper el vector de la longitud del último eslabón. A esta posición se le llama en el código "Posw", donde $Pos_w = [x y z] -l_4[ax ay az] = [x_w y_w z_w]
+2. A partir de las proyecciones de esta posición ya se puede hallar $q_1$ (posición de la primera junta)
+3. Posteriormente se soluciona geométricamente los 2 eslabones centrales del robot, como un mecanismo 2R-planar, usando la ley del cosenoy teniendo en cuenta las siguientes expresiones:
+  $r = sqrt{x_w^2+y_w^2}$
+5. 
 ### Análisis
 
 ## Aplicación de Pick and Place
