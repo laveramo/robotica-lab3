@@ -5,12 +5,21 @@ En el script *cinematica_inversa_px1.m* se encuentra una función de matlab que 
 
 La cinemática inversa se realizó a través de un análisis geométrico:
 
-1. En primer lugar, se halló el vector de la posición de la muñeca, restándole a la matriz de la pose del gripper el vector de la longitud del último eslabón. A esta posición se le llama en el código "Posw", donde $Pos_w = [x y z] -l_4[ax ay az] = [x_w y_w z_w]
+![3D](3Dcine.png)
+
+1. En primer lugar, se halló el vector de la posición de la muñeca, restándole a la matriz de la pose del gripper el vector de la longitud del último eslabón. A esta posición se le llama en el código "Posw", donde $Pos_w = [x \ y \ z] -l_4[ax \ ay \ az] = [x_w \ y_w \ z_w]$
 2. A partir de las proyecciones de esta posición ya se puede hallar $q_1$ (posición de la primera junta)
 3. Posteriormente se soluciona geométricamente los 2 eslabones centrales del robot, como un mecanismo 2R-planar, usando la ley del cosenoy teniendo en cuenta las siguientes expresiones:
-  $r = sqrt{x_w^2+y_w^2}$
-5. 
+  - $r = sqrt{x_w^2+y_w^2}$
+  - $h = z_w -l_1$
+  - $c^2=a^2+b^2-2abcos(\pi -q_3)$
+
+[![image.png](https://i.postimg.cc/qvyfZ54G/image.png)](https://postimg.cc/HrYPr3JJ)
+
+4. A partir de $q_3$ se halla el ángulo $q_2$ y finalmente se puede repetir el análisis geométrico anterior para hallar $q_4$ pero usando los 2 últimos eslabones del robot.
+
 ### Análisis
+La cinemática inversa del robot PhantomX tiene como salidas o respuesta un vector de posiciones de las juntas con 2 soluciones posibles: codo arriba, o codo abajo. En el procedimiento explicado anteriormente se realiza el detaller para el codo abajo, sin embargo, con ciertos cambios de signos se llega a la respuesta codo arriba.
 
 ## Aplicación de Pick and Place
 
