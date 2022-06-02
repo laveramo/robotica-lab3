@@ -49,4 +49,10 @@ Por otro lado, existe una demora entre ciertos puntos de la trayectoria, la cual
 
 ## Conclusiones
 
+El software de simulación juega un papel clave para el desarrollo de celdas robóticas, pues evita accidentes y hace más flexible desarrollar las trayectorias deseadas y la implementación de nuestra celda robótica.
 
+Es importante definir el número de puntos que definen las trayectorias de un robot y la cantidad de delay entre comunicación matlab - articulación-robot, pues puede generar movimientos bruscos/indeseados durante su ejecución.
+
+Conocer los limites de los actuadores es importante para el desarrollo de las celdas robóticas, pues a la hora de simular todo puede llegar a funcionar, sin embargo a la hora de comunicarnos con el robot, este puede llegar a recibir valores que superan sus limites, generando errores en la ejecución del robot.
+
+La definición del espacio de trabajo es fundamental para poder caracterizar una celda robótica, es importante conocer el alcance del robot con el fin de evitar problemas a la hora de desarrollar las MTH.
